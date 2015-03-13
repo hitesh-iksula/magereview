@@ -185,15 +185,23 @@ input[type="text"] {
 	left: 0;
 	right: 0;
 	display: none;
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(0, 0, 0, 0.75);
+	color: #FFF;
+	border-radius: 0.5em;
+	margin-top: 0.5em;
+	overflow: hidden;
 
 	.location {
-		padding: 0.25em 1em;
-		border-bottom: 1px solid #DDD;
+		padding: 0.35em 1em;
+		border-bottom: 1px solid #888;
 		cursor: pointer;
 
+		&:last-child {
+			border-bottom: none;
+		}
+
 		&:hover {
-			background-color: #F6F6F6;
+			background-color: #333;
 		}
 	}
 }
