@@ -20,7 +20,7 @@
 			<h2>Directory</h2>
 
 			<div class="directory_input_container">
-				<div class="history_icon">
+				<div class="history_icon" title="View History">
 					<img src="assets/images/clock.png"/>
 				</div>
 
@@ -28,11 +28,11 @@
 					<input type="text" placeholder="Full path to directory" id="project_path" name="project_path"/>
 				</form>
 
-				<div class="search">
+				<div class="search" title="Search">
 					<img src="assets/images/search.png"/>
 				</div>
 
-				<div class="settings_icon">
+				<div class="settings_icon" title="View Settings">
 					<img src="assets/images/settings.png"/>
 				</div>
 			</div>
