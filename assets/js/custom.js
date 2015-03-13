@@ -186,6 +186,14 @@ $(document).ready( function() {
 		localStorage.setItem("setting_standards", this.checked);
 	});
 
+	$('#clear_data').click(function() {
+		if(confirm("Are you sure?")) {
+			clearLocalStorage();
+			initStoredLocations();
+			settingsModal.close();
+		}
+	});
+
 	/**
 	 * This function simulates a modal
 	 * Call this on the element which should open modal

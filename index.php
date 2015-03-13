@@ -75,6 +75,10 @@
 							<input type="checkbox" class="settings_checkbox" id="standards" name="standards" value="1" checked="checked"/>
 							<label for="standards">Use Magento standards (uncheck for PHP standards)</label>
 						</div>
+
+						<div class="parameter action">
+							<label id="clear_data">Clear saved data</label>
+						</div>
 					</div>
 				</div>
 			</div>
