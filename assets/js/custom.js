@@ -116,6 +116,7 @@ $(document).ready( function() {
 					storedLocations = JSON.stringify(storedLocations);
 					localStorage.setItem("stored_locations", storedLocations);
 					addLocationToDisplay(location);
+					$('.history_icon').css('visibility', 'visible');
 				}
 			} else {
 				var locations = [];
@@ -123,6 +124,7 @@ $(document).ready( function() {
 				storedLocations = JSON.stringify(locations);
 				localStorage.setItem("stored_locations", storedLocations);
 				addLocationToDisplay(location);
+				$('.history_icon').css('visibility', 'visible');
 			}
 		}
 	};
@@ -139,6 +141,8 @@ $(document).ready( function() {
 			$.each(storedLocations, function(index, location) {
 				addLocationToDisplay(location);
 			});
+		} else {
+			$('.history_icon').css('visibility', 'hidden');
 		}
 	};
 
