@@ -135,9 +135,11 @@ $(document).ready( function() {
 
 	window.initStoredLocations = function() {
 		var storedLocations = getStoredLocations();
-		$.each(storedLocations, function(index, location) {
-			addLocationToDisplay(location);
-		});
+		if(storedLocations) {
+			$.each(storedLocations, function(index, location) {
+				addLocationToDisplay(location);
+			});
+		}
 	};
 
 	initStoredLocations();
@@ -148,8 +150,10 @@ $(document).ready( function() {
 
 	$(document).mouseup(function(e) {
 		var container = $(".history_container");
+		var preventer = $('.history_icon');
 
-		if (!container.is(e.target) && container.has(e.target).length === 0) {
+		if (!preventer.is(e.target) && preventer.has(e.target).length === 0 &&
+			!container.is(e.target) && container.has(e.target).length === 0) {
 			container.hide();
 		}
 	});
@@ -158,6 +162,24 @@ $(document).ready( function() {
 		$('#project_path').val($(this).text());
 		$('#explorer_form').submit();
 		$('.history_container').toggle();
+	});
+
+	window.warningsSetting = (localStorage.getItem("setting_warnings") === 'true');
+	if(localStorage.getItem("setting_warnings") != null) {
+		$('#warnings').prop("checked", warningsSetting);
+	}
+
+	window.standardsSetting = (localStorage.getItem("setting_standards") === 'true');
+	if(localStorage.getItem("setting_standards") != null) {
+		$('#standards').prop("checked", standardsSetting);
+	}
+
+	$('#warnings').change(function() {
+		localStorage.setItem("setting_warnings", this.checked);
+	});
+
+	$('#standards').change(function() {
+		localStorage.setItem("setting_standards", this.checked);
 	});
 
 	/**
