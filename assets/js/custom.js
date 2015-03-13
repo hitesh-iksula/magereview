@@ -73,6 +73,7 @@ $(document).ready( function() {
 				success: function(response) {
 					$('#explorer .preloader').hide();
 					$('#explorer .print').html(response);
+					$('#project_path').blur();
 					initFolderStructure();
 					storeLocationInStorage(project_path);
 				},
@@ -83,6 +84,8 @@ $(document).ready( function() {
 			});
 		}
 	};
+
+	$('#project_path').focus();
 
 	$('.search').live('click', function() {
 		initExplorer();
@@ -112,16 +115,50 @@ $(document).ready( function() {
 					storedLocations.push(location);
 					storedLocations = JSON.stringify(storedLocations);
 					localStorage.setItem("stored_locations", storedLocations);
+					addLocationToDisplay(location);
 				}
 			} else {
 				var locations = [];
 				locations.push(location);
 				storedLocations = JSON.stringify(locations);
 				localStorage.setItem("stored_locations", storedLocations);
+				addLocationToDisplay(location);
 			}
-
 		}
 	};
+
+	window.addLocationToDisplay = function(location) {
+		var div = $('<div>', { class: 'location' });
+		div.text(location);
+		$('.history_container').append(div);
+	};
+
+	window.initStoredLocations = function() {
+		var storedLocations = getStoredLocations();
+		$.each(storedLocations, function(index, location) {
+			addLocationToDisplay(location);
+		});
+	};
+
+	initStoredLocations();
+
+	$('.history_icon').click(function() {
+		$('.history_container').toggle();
+	});
+
+	$(document).mouseup(function(e) {
+		var container = $(".history_container");
+
+		if (!container.is(e.target) && container.has(e.target).length === 0) {
+			container.hide();
+		}
+	});
+
+	$('.location').die("click").live('click', function() {
+		$('#project_path').val($(this).text());
+		$('#explorer_form').submit();
+		$('.history_container').toggle();
+	});
 
 	/**
 	 * This function simulates a modal

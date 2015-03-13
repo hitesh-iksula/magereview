@@ -166,6 +166,38 @@ input[type="text"] {
 	cursor: pointer;
 }
 
+.history_icon {
+	display: inline-block;
+	position: relative;
+	top: 6px;
+	margin-right: 0.5em;
+	cursor: pointer;
+
+	img {
+		display: block;
+	}
+}
+
+.history_container {
+	width: 336px;
+	margin: auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	display: none;
+	background-color: rgba(255, 255, 255, 0.8);
+
+	.location {
+		padding: 0.25em 1em;
+		border-bottom: 1px solid #DDD;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #F6F6F6;
+		}
+	}
+}
+
 .selected_path {
 	line-height: 44px;
 	background-color: #514C95;

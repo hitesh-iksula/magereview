@@ -20,6 +20,10 @@
 			<h2>Directory</h2>
 
 			<div class="directory_input_container">
+				<div class="history_icon">
+					<img src="assets/images/clock.png"/>
+				</div>
+
 				<form action="#" id="explorer_form" name="explorer_form">
 					<input type="text" placeholder="Full path to directory" id="project_path" name="project_path"/>
 				</form>
@@ -32,6 +36,8 @@
 					<img src="assets/images/settings.png"/>
 				</div>
 			</div>
+
+			<div class="history_container"></div>
 
 			<div class="print">
 				<div class="intro">1. Type a directory path above to get started.</div>
