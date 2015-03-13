@@ -34,7 +34,9 @@ $(document).ready( function() {
 			url: 'exec.php',
 			data: {
 				'path': path,
-				'mode': mode
+				'mode': mode,
+				'warnings': document.getElementById('warnings').checked ? 1 : 0,
+				'standards': document.getElementById('standards').checked ? 1 : 0
 			},
 			success: function(response) {
 				$('#response .preloader').hide();
@@ -90,5 +92,75 @@ $(document).ready( function() {
 		e.preventDefault();
 		return false;
 	});
+
+	/**
+	 * This function simulates a modal
+	 * Call this on the element which should open modal
+	 * Pass element to be shown as the modal as argument
+	 */
+	$.fn.modal = function(target, externalFunctions) {
+		var source = $(this);
+		var target = target || source.src;
+		target = $(target);
+		target.hide();
+		var overlay = $('.overlay');
+		var duration = 300;
+		var modalActive = false;
+		var me = this;
+
+		var functions = {
+			allowedToOpen: function() {
+				return true;
+			}
+		};
+		$.extend(functions, externalFunctions);
+
+		this.allowedToOpen = function() {
+			return !source.hasClass('not_allowed') && functions.allowedToOpen();
+		};
+
+		this.open = function() {
+			if(!modalActive && this.allowedToOpen()) {
+				overlay.fadeIn(duration);
+				target.css('opacity', 0).show().animate({
+					opacity: 1,
+					top: 160
+				}, duration);
+				modalActive = true;
+			}
+			return this;
+		};
+
+		this.close = function() {
+			if(modalActive) {
+				overlay.fadeOut(duration);
+				target.animate({
+					opacity: 0,
+					top: 150
+				}, duration, function() {
+					target.hide();
+				});
+				modalActive = false;
+			}
+			return this;
+		};
+
+		source.click(function() {
+			me.open();
+		});
+
+		overlay.click(function() {
+			me.close();
+		});
+
+		$('.close', target).click(function() {
+			me.close();
+		});
+
+		return this;
+	};
+
+	window.settingsModal = $('.settings_icon').modal('.modal');
+	settingsModal.open();
 
 });

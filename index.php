@@ -27,6 +27,10 @@
 				<div class="search">
 					<img src="assets/images/search.png"/>
 				</div>
+
+				<div class="settings_icon">
+					<img src="assets/images/settings.png"/>
+				</div>
 			</div>
 
 			<div class="print">
@@ -49,5 +53,27 @@
 
 			<div class="preloader"></div>
 		</div>
+
+		<div class="modal">
+			<div class="modal_inner">
+				<h2>Settings</h2>
+
+				<div class="content">
+					<div class="parameters">
+						<div class="parameter">
+							<input type="checkbox" class="settings_checkbox" id="warnings" name="warnings" value="1" checked="checked"/>
+							<label for="warnings">Show warnings</label>
+						</div>
+
+						<div class="parameter">
+							<input type="checkbox" class="settings_checkbox" id="standards" name="standards" value="1" checked="checked"/>
+							<label for="standards">Use Magento standards (uncheck for PHP standards)</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="overlay"></div>
 	</body>
 </html>

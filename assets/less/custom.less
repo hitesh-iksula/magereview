@@ -132,7 +132,7 @@ h2 {
 	color: #EEE;
 }
 
-input {
+input[type="text"] {
 	border: none;
 	padding: 0.5em;
 	border-radius: 1em;
@@ -144,6 +144,7 @@ input {
 	padding: 0.5em;
 	background-color: #117EA8;
 	text-align: center;
+	position: relative;
 }
 
 #explorer_form {
@@ -177,4 +178,89 @@ input {
 	font-size: 1.5em;
 	text-align: center;
 	color: #999;
+}
+
+.settings_icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 12px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.08);
+	}
+
+	img {
+		display: block;
+	}
+}
+
+.opacity(@amount) {
+	@ieOpacity: @amount * 100;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@ieOpacity)";
+	filter: alpha(opacity=@ieOpacity);
+	-moz-opacity: @amount;
+	-khtml-opacity: @amount;
+	opacity: @amount;
+}
+
+.block, .show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	.opacity(0.2);
+	z-index: 18;
+	display: none;
+}
+
+.modal {
+	position: absolute;
+	width: 500px;
+	top: 150px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 24;
+}
+
+.modal_inner {
+	background-color: #FFF;
+	border-radius: 0.5em;
+
+	h2 {
+		color: #333;
+		border-bottom: 1px solid #999;
+	}
+
+	.content {
+		.parameters {
+			.parameter {
+				padding: 1em;
+
+				+ .parameter {
+					border-top: 1px solid #DDD;
+				}
+
+				.settings_checkbox {
+					margin-right: 1em;
+				}
+
+				input, label {
+					cursor: pointer;
+				}
+			}
+		}
+	}
 }

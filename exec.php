@@ -29,9 +29,20 @@ function performReview($path) {
 	}
 }
 
-$default = "phpcs --standard=lib/Ecg";
 $path = $_GET['path'];
 $mode = $_GET['mode'];
+$standards = $_GET['standards'];
+$warnings = $_GET['warnings'];
+
+$default = "phpcs";
+
+if($warnings == 0) {
+	$default .= ' -n';
+}
+
+if($standards == 1) {
+	$default .= ' --standard=lib/Ecg';
+}
 
 $pathArray = explode(";", $path);
 $path = trim($pathArray[0]);
