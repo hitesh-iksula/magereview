@@ -41,7 +41,11 @@ if($warnings == 0) {
 }
 
 if($standards == 1) {
-	$default .= ' --standard=lib/Ecg';
+	if (version_compare(phpversion(), '5.4.0', '<') === true) {
+		$default .= ' --standard=lib/Ecg-5.3/Ecg';
+	} else {
+		$default .= ' --standard=lib/Ecg';
+	}
 }
 
 $pathArray = explode(";", $path);
