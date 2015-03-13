@@ -74,6 +74,7 @@ $(document).ready( function() {
 					$('#explorer .preloader').hide();
 					$('#explorer .print').html(response);
 					initFolderStructure();
+					storeLocationInStorage(project_path);
 				},
 				error: function() {
 					alert("Try again with narrower results.");
@@ -92,6 +93,35 @@ $(document).ready( function() {
 		e.preventDefault();
 		return false;
 	});
+
+	window.clearLocalStorage = function() {
+		localStorage.clear();
+	};
+
+	window.getStoredLocations = function() {
+		if(typeof(Storage) !== "undefined") {
+			return JSON.parse(localStorage.getItem("stored_locations"));
+		}
+	};
+
+	window.storeLocationInStorage = function(location) {
+		if(typeof(Storage) !== "undefined") {
+			var storedLocations = getStoredLocations();
+			if(storedLocations) {
+				if($.inArray(location, storedLocations) == -1) {
+					storedLocations.push(location);
+					storedLocations = JSON.stringify(storedLocations);
+					localStorage.setItem("stored_locations", storedLocations);
+				}
+			} else {
+				var locations = [];
+				locations.push(location);
+				storedLocations = JSON.stringify(locations);
+				localStorage.setItem("stored_locations", storedLocations);
+			}
+
+		}
+	};
 
 	/**
 	 * This function simulates a modal
