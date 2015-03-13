@@ -161,6 +161,5 @@ $(document).ready( function() {
 	};
 
 	window.settingsModal = $('.settings_icon').modal('.modal');
-	settingsModal.open();
 
 });
