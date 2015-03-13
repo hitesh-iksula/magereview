@@ -1,0 +1,180 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-weight: 300;
+}
+
+body, input, textarea, button {
+	font-family: 'Roboto', sans-serif;
+}
+
+input {
+	outline: none
+}
+
+#explorer {
+	float: left;
+	width: 50%;
+	position: relative;
+}
+
+#explorer .print {
+	overflow: scroll;
+}
+
+#response {
+	float: left;
+	width: 50%;
+	position: relative;
+}
+
+#response .print {
+	overflow: scroll;
+}
+
+.php-file-tree {
+	font-family: "Roboto Slab", Georgia;
+	font-weight: 400;
+	letter-spacing: 0;
+}
+
+.pft-directory a.review {
+	margin-left: 1em;
+	color: #C00;
+	border-bottom: 1px solid #999;
+	display: none;
+}
+
+.pft-directory:hover > a.review {
+	display: inline;
+}
+
+.file_envelope {
+	padding: 0.5em 1em;
+	word-wrap: break-word;
+}
+
+.file_envelope:nth-child(odd) {
+	background-color: #EAEAEA;
+}
+
+.file_envelope:nth-child(even) {
+	background-color: #F8F8F8;
+}
+
+.file_envelope h4 {
+	margin: 0 0 0.5em 0;
+	padding: 0 0 0.5em 0;
+	font-family: 'Roboto Slab', Georgia;
+	font-weight: 400;
+	color: #C00;
+}
+
+.file_envelope:nth-child(odd) h4 {
+	border-bottom: 1px solid #BBB;
+}
+
+.file_envelope:nth-child(even) h4 {
+	border-bottom: 1px solid #CCC;
+}
+
+h2 {
+	margin: 0;
+	padding: 0.75em;
+	font-size: 2em;
+	line-height: 1em;
+	text-align: center;
+	font-weight: 100;
+	color: #FFF;
+}
+
+#explorer h2 {
+	background-color: #208FBA;
+}
+
+#response h2 {
+	background-color: #5C56A5;
+}
+
+#response pre {
+	margin: 1em;
+	font-family: "Ubuntu Mono", Courier, monospace;
+}
+
+.preloader {
+	display: none;
+	height: 128px;
+	width: 128px;
+	position: absolute;
+	margin: auto;
+	top: 13em;
+	left: 0;
+	right: 0;
+	background-image: url('../images/preloader.gif');
+	background-repeat: no-repeat;
+}
+
+::-webkit-input-placeholder {
+	color: #EEE;
+}
+
+:-moz-placeholder {
+	color: #EEE;
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	color: #EEE;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: #EEE;
+}
+
+input {
+	border: none;
+	padding: 0.5em;
+	border-radius: 1em;
+	text-align: center;
+	min-width: 320px;
+}
+
+.directory_input_container {
+	padding: 0.5em;
+	background-color: #117EA8;
+	text-align: center;
+}
+
+#explorer_form {
+	display: inline;
+}
+
+.directory_input_container input {
+	display: inline-block;
+	background-color: #208FBA;
+	color: #FFF;
+}
+
+.directory_input_container .search {
+	display: inline-block;
+	margin-left: 8px;
+	color: #FFF;
+	position: relative;
+	top: 4px;
+	cursor: pointer;
+}
+
+.selected_path {
+	line-height: 44px;
+	background-color: #514C95;
+	color: #FFF;
+	text-align: center;
+}
+
+.intro {
+	padding: 6em 2em 0em;
+	font-size: 1.5em;
+	text-align: center;
+	color: #999;
+}
